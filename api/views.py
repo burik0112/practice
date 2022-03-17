@@ -9,15 +9,15 @@ from posts.models import CategoryModel, PostModel
 class CategoryListAPIView(ListCreateAPIView):
     permission_classes = [permissions.AllowAny]
     serializer_class = CategorySerializer
-    queryset = CategoryModel.objects.all()
+    queryset = CategoryModel.objects.order_by('-pk')
 
 
 class PostListCreateAPIView(ListCreateAPIView):
     permission_classes = [permissions.AllowAny]
     serializer_class = PostSerializer
-    queryset = PostModel.objects.all()
+    queryset = PostModel.objects.order_by('-pk')
 
 
 class ContactListAPIView(ListAPIView):
     serializer_class = ContactSerializer
-    queryset = PostModel.objects.all()
+    queryset = PostModel.objects.order_by('-pk')
